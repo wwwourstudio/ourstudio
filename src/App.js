@@ -2,7 +2,6 @@ import { useRef, useState } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { SoftShadows, Float, CameraControls, Sky, PerformanceMonitor } from "@react-three/drei"
 import { useControls } from "leva"
-import { Perf } from "r3f-perf"
 import { easing } from "maath"
 import { Model as Room } from "./Room"
 
