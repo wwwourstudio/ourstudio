@@ -1,6 +1,6 @@
 import { useRef, useState } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
-import { SoftShadows, Float, CameraControls, Sky, PerformanceMonitor } from "@react-three/drei"
+import { SoftShadows, Float, CameraControls, Sky} from "@react-three/drei"
 import { easing } from "maath"
 import { Model as Room } from "./Room"
 
@@ -20,13 +20,6 @@ function Light() {
 
 export default function App() {
   const [bad, set] = useState(false)
-  const { impl, debug, enabled, samples, ...config } = useControls({
-    debug: false,
-    enabled: false,
-    size: { value: 35, min: 0, max: 100, step: 0.1 },
-    focus: { value: 0.5, min: 0, max: 2, step: 0.1 },
-    samples: { value: 16, min: 1, max: 40, step: 1 }
-  })
   return (
     <Canvas shadows camera={{ position: [5, 2, 10], fov: 50 }}>
       {enabled && <SoftShadows {...config} samples={bad ? Math.min(6, samples) : samples} />}
