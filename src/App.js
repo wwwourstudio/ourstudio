@@ -1,6 +1,8 @@
 import { useRef, useState } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
-import { SoftShadows, Float, CameraControls, Sky} from "@react-three/drei"
+import { SoftShadows, Float, CameraControls, Sky, PerformanceMonitor } from "@react-three/drei"
+import { useControls } from "leva"
+import { Perf } from "r3f-perf"
 import { easing } from "maath"
 import { Model as Room } from "./Room"
 
@@ -29,6 +31,8 @@ export default function App() {
   })
   return (
     <Canvas shadows camera={{ position: [5, 2, 10], fov: 50 }}>
+      {debug && <Perf position="top-left" />}
+      <PerformanceMonitor onDecline={() => set(true)} />
       {enabled && <SoftShadows {...config} samples={bad ? Math.min(6, samples) : samples} />}
       <CameraControls makeDefault />
       <color attach="background" args={["#d0d0d0"]} />
@@ -37,7 +41,7 @@ export default function App() {
       <Light />
       <Room scale={0.5} position={[0, -1, 0]} />
       <Sphere />
-      <Sphere position={[2, 2, -8]} scale={0.9} />
+      <Sphere position={[2, 4, -8]} scale={0.9} />
       <Sphere position={[-2, 2, -8]} scale={0.8} />
       <Sky inclination={0.52} scale={20} />
     </Canvas>
