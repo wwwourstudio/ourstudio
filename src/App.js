@@ -21,11 +21,11 @@ function Light() {
 export default function App() {
   const [bad, set] = useState(false)
   return (
-    <Canvas shadows camera={{ position: [5, 2, 10], fov: 50 }}>
+    <Canvas shadows camera={{ position: [5, 2, 10], fov: 35 }}>
      <SoftShadows/>
       <CameraControls makeDefault />
       <color attach="background" args={["#d0d0d0"]} />
-      <fog attach="fog" args={["#d0d0d0", 8, 35]} />
+      <fog attach="fog" args={["#d0d0d0", 8, 5]} />
       <ambientLight intensity={0.4} />
       <Light />
       <Room scale={0.5} position={[0, -1, 0]} />
