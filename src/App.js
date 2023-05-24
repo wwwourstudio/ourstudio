@@ -21,7 +21,7 @@ function Light() {
 export default function App() {
   const [bad, set] = useState(false)
   return (
-    <Canvas shadows camera={{ position: [5, 2, 10], fov: 50 }}>
+    <Canvas shadows camera={{ position: [5, 2, 10], fov: 75 }}>
      <SoftShadows/>
       <CameraControls makeDefault />
       <color attach="background" args={["#d0d0d0"]} />
