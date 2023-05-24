@@ -31,8 +31,6 @@ export default function App() {
   })
   return (
     <Canvas shadows camera={{ position: [5, 2, 10], fov: 50 }}>
-      {debug && <Perf position="top-left" />}
-      <PerformanceMonitor onDecline={() => set(true)} />
       {enabled && <SoftShadows {...config} samples={bad ? Math.min(6, samples) : samples} />}
       <CameraControls makeDefault />
       <color attach="background" args={["#d0d0d0"]} />
