@@ -3,7 +3,6 @@ import { Canvas, useFrame } from "@react-three/fiber"
 import { SoftShadows, Float, CameraControls, Sky, PerformanceMonitor } from "@react-three/drei"
 import { easing } from "maath"
 import { Model as Room } from "./Room"
-import * as random from 'maath/random/dist/maath-random.esm'
 
 function Light() {
   const ref = useRef()
@@ -30,10 +29,6 @@ export default function App() {
   })
   return (
     <Canvas shadows camera={{ position: [5, 2, 10], fov: 50 }}>
-       <Stars />
-      {debug && <Perf position="top-left" />}
-      <PerformanceMonitor onDecline={() => set(true)} />
-      {enabled && <SoftShadows {...config} samples={bad ? Math.min(6, samples) : samples} />}
       <CameraControls makeDefault />
       <color attach="background" args={["#d0d0d0"]} />
       <fog attach="fog" args={["#d0d0d0", 8, 35]} />
@@ -59,18 +54,3 @@ function Sphere({ color = "hotpink", floatIntensity = 15, position = [0, 5, -8],
   )
 }
 
-function Stars(props) {
-  const ref = useRef()
-  const [sphere] = useState(() => random.inSphere(new Float32Array(5000), { radius: 1.5 }))
-  useFrame((state, delta) => {
-    ref.current.rotation.x -= delta / 10
-    ref.current.rotation.y -= delta / 15
-  })
-  return (
-    <group rotation={[0, 0, Math.PI / 4]}>
-      <Points ref={ref} positions={sphere} stride={3} frustumCulled={false} {...props}>
-        <PointMaterial transparent color="#ffa0e0" size={0.005} sizeAttenuation={true} depthWrite={false} />
-      </Points>
-    </group>
-  )
-}
