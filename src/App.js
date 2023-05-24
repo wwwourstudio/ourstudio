@@ -22,7 +22,7 @@ export default function App() {
   const [bad, set] = useState(false)
   return (
     <Canvas shadows camera={{ position: [5, 2, 10], fov: 50 }}>
-     <SoftShadows/>
+      {enabled && <SoftShadows {...config} samples={bad ? Math.min(6, samples) : samples} />}
       <CameraControls makeDefault />
       <color attach="background" args={["#d0d0d0"]} />
       <fog attach="fog" args={["#d0d0d0", 10, 15]} />
