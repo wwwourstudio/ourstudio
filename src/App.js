@@ -25,7 +25,7 @@ export default function App() {
      <SoftShadows/>
       <CameraControls makeDefault />
       <color attach="background" args={["#d0d0d0"]} />
-      <fog attach="fog" args={["#d0d0d0", 8, 5]} />
+      <fog attach="fog" args={["#d0d0d0", 8, 25]} />
       <ambientLight intensity={0.4} />
       <Light />
       <Room scale={0.5} position={[0, -1, 0]} />
