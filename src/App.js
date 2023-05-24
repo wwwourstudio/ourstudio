@@ -25,12 +25,12 @@ export default function App() {
      <SoftShadows/>
       <CameraControls makeDefault />
       <color attach="background" args={["#d0d0d0"]} />
-      <fog attach="fog" args={["#d0d0d0", 8, 25]} />
+      <fog attach="fog" args={["#d0d0d0", 10, 15]} />
       <ambientLight intensity={0.4} />
       <Light />
       <Room scale={0.5} position={[0, -1, 0]} />
       <Sphere />
-      <Sphere position={[2, 4, -8]} scale={0.9} />
+      <Sphere position={[2, 2, -8]} scale={0.9} />
       <Sphere position={[-2, 2, -8]} scale={0.8} />
       <Sky inclination={0.52} scale={20} />
     </Canvas>
