@@ -38,7 +38,7 @@ export default function App() {
       <fog attach="fog" args={["#d0d0d0", 8, 35]} />
       <ambientLight intensity={0.4} />
       <Light />
-      <Room scale={0.5} position={[0, -1, 0]} />
+      <Room scale={0.5} position={[0, 0, 0]} />
       <Sphere />
       <Sphere position={[2, 4, -8]} scale={0.9} />
       <Sphere position={[-2, 2, -8]} scale={0.8} />
