@@ -3,7 +3,6 @@ import { Canvas, useFrame } from "@react-three/fiber"
 import { SoftShadows, Float, CameraControls, Sky} from "@react-three/drei"
 import { easing } from "maath"
 import { Model as Room } from "./Room"
-import { Logo } from "@pmndrs/branding"
 
 function Light() {
   const ref = useRef()
